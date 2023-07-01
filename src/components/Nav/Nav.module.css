@@ -1,0 +1,40 @@
+.FondoSearchBar {
+    background-color: black;
+    height: 60px;
+    position: relative;
+    top: 0px;
+    margin: 0px;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding-top: 20px;
+}
+
+.button {
+    font-family: 'Caprasimo', cursive;
+    height: 32px;
+    width: fit-content !important;
+    margin-right: 10px;
+    border-radius: 14px;
+    background-color: orange;
+    cursor: pointer;
+    display: inline-block;
+    white-space:nowrap;
+}
+
+.menu {
+    display: flex;
+}
+
+.button:hover{
+    color:green;
+    border: solid white;
+}
+
+@media screen and (min-width:1160px){
+    .button {
+        
+        height: 40px;
+        width: 100px;
+        
+    }
+}

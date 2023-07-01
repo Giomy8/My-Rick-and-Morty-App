@@ -1,0 +1,47 @@
+.button {
+    font-family: 'Caprasimo', cursive;
+    height: 32px;
+    width: fit-content !important;
+    border-radius: 14px;
+    background-color: orange;
+    cursor: pointer;
+    display: inline-block;
+    white-space:nowrap;
+    margin-right: 10px;
+}
+
+.button:hover{
+    color:green;
+    border: solid white;
+}
+
+.input{
+    background-color:  green;
+    height: 32px;
+    width: 200px;
+    border-radius: 14px;
+    color: white;
+    margin-right: 10px;
+    
+    
+}
+
+.contenedor {
+    text-align: center;
+    display: flex;
+    }
+
+@media screen and (min-width:1160px){
+    .button {
+        
+        height: 40px;
+        width: 100px;
+        
+    }
+    
+    .input{
+        height: 40px;
+        width: 220px;
+        
+    }  
+}

@@ -1,0 +1,102 @@
+.card {
+
+    display:flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 500px;
+    width: 400px;
+    border: 3px solid ;
+    border-radius:20px;
+    overflow: hidden;
+    background-color:mediumpurple;
+    position: relative;
+    margin-right: 60px;
+    /* width: 300px;
+    border: 3px solid rgb(0, 128, 0);
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    background-color:rgba(154, 205, 50,0.8);
+    color:white;
+    text-shadow: black 1px 1px 5px; margin-left: auto; margin-right: auto; margin-bottom: 20px; */
+  }
+
+  .pestana {
+    position:relative;
+    height: 500px;
+    width: 400px;
+    margin: 10px;
+    
+    
+  }
+
+  .nombre {
+    transform: rotate(90deg);
+    width: 400px;
+    position: absolute;
+    bottom: 245px;
+    left: 200px;
+    z-index: -1;
+    font-size: 25px;
+    height: 40px;
+    background-color: white;
+    text-align: center;
+    margin-left: 25px;
+    border-radius: 10px 10px 0px 0px;
+    box-shadow: 2px 2px 10px;
+  }
+  
+  .card img {
+    width: 80%;
+    margin-left:10%;
+    margin-top: 20px;
+    border-radius: 50%;
+    border: 3px solid black;
+  }
+  
+  .datos {
+   background-color: black;
+   text-align: center;
+   color: white;
+
+  }
+  
+  .card p {
+    margin-top: 10px;
+    font-size: 16px;
+    color: white;
+  }
+
+
+  .button {
+
+    border: solid 2px transparent; padding: 10px 20px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    background: transparent;
+    position: absolute;
+    top: 10px;
+    left: 0px;
+    z-index: 2;
+    cursor: pointer;
+    
+  }
+
+  .button:hover{
+    color: white;
+  }
+
+  .info {
+  position: absolute;
+  top: 40px;
+  left: 313px;
+  z-index: 2;      
+   background: transparent;
+   border: 0;
+   cursor: pointer;
+  }
+
+  .info:hover{
+    color: yellow;
+  }
