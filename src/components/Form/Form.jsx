@@ -3,12 +3,14 @@ import styles from './Form.module.css';
 import Validate from '../Validation/Validation';
 import {useNavigate} from 'react-router-dom';
 
+const EMAIL = 'giomarmesa@gmail.com';
+const PASSWORD = '123456';
 
 // eslint-disable-next-line
 export default function Form({setAccess}) {
   const [userData, setUserData] = React.useState({
-    email: '',
-    password: '',
+    email: EMAIL,
+    password: PASSWORD,
   });
 
   const [errors, setErrors] = React.useState({});
@@ -20,11 +22,7 @@ export default function Form({setAccess}) {
     setUserData({ ...userData, [name]: value });
   };
   
-  const EMAIL = 'giomarmesa@gmail.com';
- 
-  const PASSWORD = 'Gio1802';
-
-  const handleSubmit = (e) => {
+    const handleSubmit = (e) => {
     e.preventDefault();
     const newErrors = Validate(userData);
     setErrors(newErrors);

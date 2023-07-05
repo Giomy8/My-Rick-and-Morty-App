@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
+import styles from './Detail.module.css';
+import {IconArrowBackUp} from "@tabler/icons-react";
 
 function Character() {
   const { id } = useParams();
@@ -18,14 +20,17 @@ function Character() {
   }, [id]);
 
   return (
+    <>
     <div>
       {character.name && <h1>{character.name}</h1>}
       {character.image && <img src={character.image} alt={character.name} />}
-      {character.status && <p>Estado: {character.status}</p>}
-      {character.species && <p>Especie: {character.species}</p>}
-      {character.gender && <p>Género: {character.gender}</p>}
-      {character.origin && character.origin.name && <p>Origen: {character.origin.name}</p>}
+      {character.status && <p>Status: {character.status}</p>}
+      {character.species && <p>Specie: {character.species}</p>}
+      {character.gender && <p>Gender: {character.gender}</p>}
+      {character.origin && character.origin.name && <p>Origin: {character.origin.name}</p>}
     </div>
+    <Link to = {"/home"}><button className = {styles.button}><IconArrowBackUp/></button></Link>
+    </>
   );
 }
 

@@ -8,7 +8,9 @@ export default function Nav ({onSearch, setAccess}){
        return(
         <nav className={styles.FondoSearchBar}>
           <div></div>   
-          <div className={styles.menu}><Link to="/about"><button className={styles.button}>About</button></Link>
+          <div className={styles.menu}>
+            <Link to="/favorites"><button className={styles.button}>favorites</button></Link>
+            <Link to="/about"><button className={styles.button}>About</button></Link>
           <Link to="/home"><button className={styles.button}>Home</button></Link>     
           <SearchBar onSearch = {onSearch} />
         </div>
