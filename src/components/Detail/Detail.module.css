@@ -151,47 +151,11 @@ width: 300px;
   }
 
 
-  .buttontrash{
 
-    border: solid 2px transparent; padding: 10px 20px;
-    border-radius: 8px;
-    margin-bottom: 8px;
-    background: transparent;
-    position: absolute;
-    top: -2px;
-    left: -14px;
-    z-index: 2;
-    cursor: pointer;
-    color: black;
-    
-  }
 
-  .buttontrash:hover{
-    color: red;
-  }
 
-  .info {
-  position: absolute;
-  top: 30px;
-  left: 356px;
-  z-index: 2;      
-  background: red;
-  padding: 2px 3px;
-  border: transparent;
-  cursor: pointer;
-  color: white;
-  border-radius: 50%;
-  }
 
-  .info:hover{
-    color: black;
-  }
 
-  .agregarFav{
-    color: red;
-  }
 
-  .quitarFav{
-    color:black;
-    cursor: pointer;
-  }
+ 
+
