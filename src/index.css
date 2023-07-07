@@ -10,5 +10,14 @@ body {
    
   }
 
+input {
+  border-radius: 8px;
+}
 
-
+button {
+  border-radius: 8px;
+  background-color: rgb(11, 164, 175);
+  color: white;
+  display: inline-flexbox;
+  cursor: pointer;
+}

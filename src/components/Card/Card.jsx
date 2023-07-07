@@ -1,5 +1,5 @@
 import styles from "./Card.module.css";
-import {IconTrash,IconInfoCircleFilled,IconHeartFilled} from "@tabler/icons-react"
+import {IconTrash,IconUserQuestion,IconHeartFilled} from "@tabler/icons-react"
 import { Link } from "react-router-dom";
 import { addFav, removeFav } from "../../redux/actions/actions";
 import {useState, useEffect } from "react";
@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 
  function Card(props) {
    console.log('J',props)
-   const { id, name, species, gender, image} = props.character
+   const { id, name, species, gender, status, image} = props.character
    
   const [isFav, setIsFav]  = useState(false);
 
@@ -34,19 +34,22 @@ import { connect } from "react-redux";
          <div className={styles.nombre}>
             {name}
          </div>
-         <button className = {styles.button} onClick = {()=> props.onClose(id)} ><IconTrash/></button>
-         <Link to = {"/detail/"+ id}><button  className = {styles.info}><IconInfoCircleFilled size ={50}/></button>
+         <button className = {styles.buttontrash} onClick = {()=> props.onClose(id)} ><IconTrash/></button>
+         <Link to = {"/detail/"+ id}><button  className = {styles.info}><IconUserQuestion size ={25}/></button>
          </Link>
          <div className={styles.card}>
 
-            <div>
+            <div className={styles.contenedorimg}>
                <img src={image} alt="Nombre del personaje" />
             </div>
 
-            <div className={styles.datos}>
-               <h2>Specie: {species}</h2>
+            <div className={styles.contenedordatos}>
+               <div className={styles.datos}>
                <h2>Gender: {gender}</h2>
+               <h2>Specie: {species}</h2>
+               <h2>Status: {status}</h2>
                <IconHeartFilled className ={isFav? styles.agregarFav : styles.quitarFav} onClick={handleFavorite}/>
+               </div>
             </div>       
      
          </div>

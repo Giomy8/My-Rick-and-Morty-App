@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 function Error() {
   return (
     <div>
-      <h1>Error 404: Página no encontrada</h1>
-      <p>Lo sentimos, la página que estás buscando no existe.</p>
-      <Link to="/">Volver a la página de inicio</Link>
+      <h1>Error 404: Page not found</h1>
+      <p>Sorry, the page you are looking for does not exist</p>
+      <Link to="/">Return to homepage</Link>
     </div>
   );
 }

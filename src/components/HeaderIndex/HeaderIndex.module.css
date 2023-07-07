@@ -1,0 +1,17 @@
+.headerindex{
+    position: fixed;
+    text-align: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    border-bottom: solid 5px rgb(11, 164, 175);
+    z-index: 2;
+    background-color: rgba(255,255,255,0.5);
+    /* border-bottom: solid 4px blue; */
+}
+
+.imagen{
+    width: 400px;
+    margin-top: -30px;
+}

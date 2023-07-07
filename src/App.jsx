@@ -8,6 +8,7 @@ import About from "./components/About/About";
 import Detail from "./components/Detail/Detail";
 import Form from './components/Form/Form';
 import Favorites from './components/Favorites/Favorites';
+import HeaderIndex from './components/HeaderIndex/HeaderIndex'
 
 export default function App() {
 const [characters , setCharacters] = useState ([]);
@@ -51,7 +52,8 @@ const onClose = (id) => {
 }
    return (
       <div className = "App">
-        {pathname !== '/' && <Nav onSearch={onSearch} setAccess={setAccess}/>} 
+        {pathname !== '/' && <Nav onSearch={onSearch} setAccess={setAccess}/>}
+        {pathname === '/' && <HeaderIndex />} 
          <Routes>
            <Route path="/" element={<Form setAccess={setAccess} />} />
            <Route path="/home" element={<Cards characters={characters} onClose={onClose} />} />

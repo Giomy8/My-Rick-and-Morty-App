@@ -2,18 +2,19 @@ import React from 'react';
 import styles from './Form.module.css';
 import Validate from '../Validation/Validation';
 import {useNavigate} from 'react-router-dom';
+import { useState } from 'react';
 
 const EMAIL = 'giomarmesa@gmail.com';
 const PASSWORD = '123456';
 
 // eslint-disable-next-line
 export default function Form({setAccess}) {
-  const [userData, setUserData] = React.useState({
+  const [userData, setUserData] = useState({
     email: EMAIL,
     password: PASSWORD,
   });
 
-  const [errors, setErrors] = React.useState({});
+  const [errors, setErrors] = useState({});
 
   const navigate = useNavigate();
 
@@ -22,6 +23,7 @@ export default function Form({setAccess}) {
     setUserData({ ...userData, [name]: value });
   };
   
+  let emailpassword = ""
     const handleSubmit = (e) => {
     e.preventDefault();
     const newErrors = Validate(userData);
@@ -31,32 +33,54 @@ export default function Form({setAccess}) {
             setAccess(true);
             navigate('/home');
          }else{
-            alert ("El usuario o la contraseña no son válidos")
+            setErrors({...errors,emailpassword: "* Username or Password are invalid"})
          }
-        }
+       }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>Email:</label>
-      <input
+    <div className={styles.contenedorcolumnas}>
+
+    <div className={styles.columnas}>
+      <div className={styles.columna1}></div>
+
+      <div className={styles.columna2}></div>
+
+      <div className={styles.contenedorcolumna3}>
+        
+      <div className={styles.columna3}>
+
+      <button className={styles.botonuser}>USER</button>
+
+      <form onSubmit={handleSubmit}>
+
+      <input className={styles.email}
+      placeholder='E-MAIL *'
         type="text"
         name="email"
         value={userData.email}
         onChange={handleChange}
       />
-    {errors.email && <p className={styles.error}>{errors.email}</p>}
-
-      <label>Password:</label>
-      <input
+    
+      <input className={styles.password}
+      placeholder='PASSWORD *'
         type="password"
         name="password"
         value={userData.password}
         onChange={handleChange}
       />
-     {errors.password && <p className={styles.error}>{errors.password}</p>}
+     
+     <p className={styles.error}>
+     {errors.email && errors.email}
+     {errors.password && errors.password}
+     {errors.emailpassword !="" && errors.emailpassword}
 
-    <button type="submit">Submit</button>
+    </p>     
+    <button type="submit" className={styles.botonsignup}>SIGN UP</button>
     </form>
+    </div>
+    </div>
+    </div>
+    </div>
 );
 }
