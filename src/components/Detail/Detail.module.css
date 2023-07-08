@@ -6,6 +6,7 @@ height: 100vh;
 align-items: center;
 /* border: solid white; */
 padding: 20px;
+
 }
 
 .bordedatos{
@@ -18,13 +19,14 @@ padding: 20px;
 }
 
 .datos{
-    padding: 75px;
+    padding: 55px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     /* border: solid green; */
 }
 .columdatos{
-    padding-left: 50px; font-size: 30px;
+    padding-left: 50px; font-size: 34px;
+    font-family: 'Cutive Mono', monospace;
 }
 
 .sello{
@@ -34,30 +36,29 @@ padding: 20px;
 .atras{
 position: relative;
 top: 80px;
-width: 370px;
-left: 80px;
+width: 380px;
+left: 280px;
 }
 
 .adelante{
 transform: rotate(-24deg);
-font-size: 70px;
+font-size: 55px;
 white-space: nowrap;
 position: absolute;
-top: 260px;
-right: 300px;
-left: 80px;
+top: 300px;
+
+left: 270px;
 width: 300px;
-
+font-family: 'Cutive Mono', monospace;
 }
-
 
 .button {
     color: white;
     position: absolute;
     width: 60px;
     height: 40px;
-    top: 88px;
-    left: 200px;
+    top: 95px;
+    left: 240px;
     z-index: 0;      
     background: red;
     border: 0;
@@ -65,90 +66,85 @@ width: 300px;
     
 }
 
-
-
-
-
-
-
 .card {
-
-    display:flex;
-    justify-content: space-between;
-    flex-direction: column;
-    height: 410px;
-    width: 300px;
-    border: 3px solid ;
-    border-radius:6px;
-    overflow: hidden;
-    background-color:mediumpurple;
-    position: relative;
-    right: -200px;
-    top:-70px;
-    border: solid 8px white;
-    padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 315px;
+  width: 300px;
+  border-radius: 6px;
+  position: relative;
+  margin-right: 60px;
+  padding: 0px;
+  box-shadow: black 2px 2px 8px; 
 }
 
-.card h2{
-  margin: 0;
-}
-
-  .pestana {
-    position:relative;
-    height: 500px;
-    width: 400px;
-    margin: 50px;
-    
-    
-  }
-
-  .nombre {
-    transform: rotate(90deg);
-    width: 400px;
-    position: absolute;
-    top: 120px;
-    left: 347px;
-    z-index: 1;
-    font-size: 25px;
-    height: 40px;
-    background-color: white;
-    text-align: center;
-    margin-left: 25px;
-    box-shadow: 2px 2px 10px;
-    clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%);
-  }
-  .contenedorimg{
-    width: 100%;
-    height: 400px;
-    
-  }
-
-  .card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 5px;  
-  }
+.dead {
+  background-image: url('../../imagenes/fondodead.png');
+  background-repeat: no-repeat; 
+  background-size: 100% 100%;
   
-  .contenedordatos {
-  padding: 10px;
+}
+
+.alive {
+  background-image: url('../../imagenes/fondoalive.png');
+  background-repeat: no-repeat; 
+  background-size: cover;
+}
+
+.unknown {
+  background-image: url('../../imagenes/fondounknown.png');
+  background-repeat: no-repeat; 
+  background-size: cover;
+}
+
+.pestana {
+  position: absolute;
+  height: 500px;
+  width: 400px;
+  margin: 50px;
+  padding-bottom: 80px;
+  right: -70px;
+  top: 85px;
+}
+
+.nombre {
+  overflow: hidden;
+  transform: rotate(90deg);
+  width: 400px;
+  position: absolute;
+  top: 180px;
+  left: 91px;
+  z-index: -1;
+  font-size: 25px;
+  height: 40px;
   background-color: white;
   text-align: center;
-  color: black;
-  margin-top: 20px;
-  border-radius: 10px;
-  }
+  margin-left: 25px;
+  box-shadow: 2px 2px 10px;
+  clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+.clip{
+  position: absolute; z-index: 5; top:-50px; left:-70px;
+}
 
-  .datos{
-    padding: 10px;
-    border-radius: 10px;
-  }
+.contenedorimg {
+  position: relative;
+  width: 80%;
+  margin-left: 5%;
+  margin-top: 20px;
+  /* border: solid red; */
+  padding: 14px;
+}
+
+.card img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px; 
+}
   
-  .card p {
-    margin-top: 10px;
-    font-size: 16px;
-    color: black;
-  }
 
 
 

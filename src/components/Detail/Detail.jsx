@@ -4,7 +4,7 @@ import axios from 'axios';
 import styles from './Detail.module.css';
 import {IconArrowBackUp} from "@tabler/icons-react";
 import sello from '../../imagenes/sello.png';
-
+import clip from '../../imagenes/clip.png';
 
 
 function Character() {
@@ -56,11 +56,15 @@ function Character() {
          </div>
          
          
-         <div className={styles.card}>
+         <div className={`${styles.card} ${character.status === "Dead" ? styles.dead : character.status === "Alive" ? styles.alive : styles.unknown}`}>
 
             <div className={styles.contenedorimg}>
                <img src={character.image} alt="Nombre del personaje" />
             </div>
+
+<div className={styles.clip} >
+<img src={clip} alt="clip"/>
+</div>
 
                  
      

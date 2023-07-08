@@ -1,124 +1,172 @@
 .card {
-
-    display:flex;
-    justify-content: space-between;
-    flex-direction: column;
-    height: 550px;
-    width: 300px;
-    border: 3px solid ;
-    border-radius:6px;
-    overflow: hidden;
-    background-color:mediumpurple;
-    position: relative;
-    margin-right: 60px;
-    border: solid 8px white;
-    padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 589px;
+  width: 300px;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  margin-right: 60px;
+  padding: 30px;
+  box-shadow: black 2px 2px 8px;
 }
 
-h2{
+h2 {
   margin: 0;
 }
 
-  .pestana {
-    position:relative;
-    height: 500px;
-    width: 400px;
-    margin: 50px;
-    
-    
-  }
+.pestana {
+  position: relative;
+  height: 500px;
+  width: 400px;
+  margin: 50px;
+  padding-bottom: 80px;
+}
 
-  .nombre {
-    transform: rotate(90deg);
-    width: 400px;
-    position: absolute;
-    top: 180px;
-    left: 147px;
-    z-index: -1;
-    font-size: 25px;
-    height: 40px;
-    background-color: white;
-    text-align: center;
-    margin-left: 25px;
-    box-shadow: 2px 2px 10px;
-    clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%);
-  }
-  .contenedorimg{
-    width: 100%;
-    height: 400px;
-    
-  }
+.nombre {
+  overflow: hidden;
+  transform: rotate(90deg);
+  width: 400px;
+  position: absolute;
+  top: 180px;
+  left: 150px;
+  z-index: -1;
+  font-size: 25px;
+  height: 40px;
+  background-color: white;
+  text-align: center;
+  margin-left: 25px;
+  box-shadow: 2px 2px 10px;
+  clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
 
-  .card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 5px;  
-  }
-  
-  .contenedordatos {
+.contenedorimg {
+  position: relative;
+  width: 100%;
+  height: 400px;
+}
+
+.imagenpersonaje {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.codigodebarras {
+  position: absolute;
+  right: 10px; 
+  bottom: 30px; 
+  width: 140px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 8px;
+  padding-bottom: 30px;
+}
+
+.textocodigo{
+  text-align: right;
+  right: 46px;
+  position: absolute;
+  bottom: 36px;
+  color: black;
+}
+
+.dead {
+  background-image: url('../../imagenes/fondodead.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.alive {
+  background-image: url('../../imagenes/fondoalive.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.unknown {
+  background-image: url('../../imagenes/fondounknown.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.sellos{
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: 0;
+}
+
+.sellos img{
+  width: 150px;
+}
+
+
+.contenedordatos {
   padding: 10px;
   background-color: white;
   text-align: center;
   color: black;
   margin-top: 20px;
   border-radius: 10px;
-  }
+}
 
-  .datos{
-    padding: 10px;
-    border: solid 2px red;
-    border-radius: 10px;
-  }
-  
-  .card p {
-    margin-top: 10px;
-    font-size: 16px;
-    color: black;
-  }
+.datos {
+  padding: 10px;
+  border: solid 2px red;
+  border-radius: 10px;
+  font-family: 'Cutive Mono', monospace; color:#333
+}
 
+.card p {
+  margin-top: 10px;
+  font-size: 16px;
+  color: black;
+}
 
-  .buttontrash{
-
-    border: solid 2px transparent; padding: 10px 20px;
-    border-radius: 8px;
-    margin-bottom: 8px;
-    background: transparent;
-    position: absolute;
-    top: -2px;
-    left: -14px;
-    z-index: 2;
-    cursor: pointer;
-    color: black;
-    
-  }
-
-  .buttontrash:hover{
-    color: red;
-  }
-
-  .info {
-  position: absolute;
-  top: 30px;
-  left: 356px;
-  z-index: 2;      
+.buttontrash {
+  border: solid 2px transparent;
+  padding: 5px 8px;
+  border-radius: 50%;
+  margin-bottom: 8px;
   background: red;
+  position: absolute;
+  top: 38px;
+  left: 38px;
+  z-index: 2;
+  cursor: pointer;
+  color: white;
+}
+
+.buttontrash:hover {
+  color: black;
+}
+
+.info {
+  position: absolute;
+  top: 50px;
+  left: 363px;
+  z-index: 2;
+  background: black;
   padding: 2px 3px;
   border: transparent;
   cursor: pointer;
   color: white;
   border-radius: 50%;
-  }
+}
 
-  .info:hover{
-    color: black;
-  }
+.info:hover {
+  color: aqua;
+}
 
-  .agregarFav{
-    color: red;
-  }
+.agregarFav {
+  color: red;
+}
 
-  .quitarFav{
-    color:black;
-    cursor: pointer;
-  }
+.quitarFav {
+  color: black;
+  cursor: pointer;
+}
+

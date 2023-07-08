@@ -1,37 +1,57 @@
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Cards from "../Cards/Cards";
-import { orderCards } from "../../redux/actions/actions";
+import { orderCards, filterCards } from "../../redux/actions/actions";
+import styles from "./Favorites.module.css";
+import { IconArrowBackUp } from "@tabler/icons-react";
+import { Link } from "react-router-dom";
 
-export default function Favorites(){
-    const traerFav = useSelector(state => state.myFavorites);
-    const dispatch = useDispatch();
+export default function Favorites({ onClose }) {
+  const traerFav = useSelector((state) => state.myFavorites);
+  const dispatch = useDispatch();
 
-    const handleOrder = (event) => {
-    dispatch(orderCards(event.target.value))
-    }
+  const handleOrder = (event) => {
+    dispatch(orderCards(event.target.value));
+  };
 
-    const handleFilter = (event) => {
-        dispatch(filterCards(event.target.value))
-        }
+  const handleFilter = (event) => {
+    dispatch(filterCards(event.target.value));
+  };
 
-    return (
+  useEffect(() => {
+    dispatch(orderCards("Ascendente"));
+  }, [dispatch]);
+
+  return (
     <div>
-        <div>
-            <select onChange={handleOrder}>
-                <option value="order" disabled = 'disabled'>Order By</option>
-                <option value="Ascendente">Ascendente</option>
-                <option value="Descendente">Descendente</option>
-            </select>
-            <select onChange={handleFilter}>
-                <option value="filter" disabled = 'disabled'>Filter By</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Genderless">Genderless</option>
-                <option value="Unknown">Unknown</option>
-            </select>
-        </div>
-        <h1>Favorites</h1>
-        <Cards characters = {traerFav}/>
-        </div>
-        )
+      
+      <div className={styles.bar}>
+      <Link to={"/home"}>
+        <button className={styles.buttonback}>
+          <IconArrowBackUp /> <span>Back to Home</span>
+        </button>
+      </Link>
+
+        <select onChange={handleOrder}>
+          <option value="">
+            Order By
+          </option>
+          <option value="Ascendente">Ascending Order</option>
+          <option value="Descendente">Descending Order</option>
+        </select>
+
+        <select onChange={handleFilter}>
+          <option value="">
+            Filter By
+          </option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Genderless">Genderless</option>
+          <option value="unknown">Unknown</option>
+          <option value="todos">All</option>
+        </select>
+      </div>
+      <Cards characters={traerFav} onClose={onClose} />
+    </div>
+  );
 }

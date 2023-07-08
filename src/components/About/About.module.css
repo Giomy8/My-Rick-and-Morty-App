@@ -1,0 +1,37 @@
+.fondoabout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; 
+  }
+  
+  .centro {
+    text-align: center;
+  }
+
+  .doc {
+    margin-top: 50px;
+    width: 600px;
+    height: 1016px;
+    background-image: url('../../imagenes/about.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%; 
+  }
+  .celda{
+    height: 508px !important;
+    display: flex;
+  }
+  .card_image{
+   width: 170px; height: 230px; margin-bottom: 75px; margin-right: 60px;
+  }
+  .down{
+    align-items: flex-end;
+    justify-content: flex-end;
+    
+  }
+
+  .up{
+    width: 235px; 
+    margin-left:70px; margin-top: 80px; font-size: 12px; font-weight: bold;
+  }
+  

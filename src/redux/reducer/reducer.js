@@ -5,13 +5,13 @@ const initialState = {
     allCharacters: [],
 };
 
-const reducer = (state = initialState, action ) => {
+const reducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_FAV:
-             return {
-            ...state ,
-            myFavorites:[...state.allCharacters, action.payload],
-            allCharacters: [...state.allCharacters, action.payload]
+            return {
+                ...state,
+                myFavorites: [...state.allCharacters, action.payload],
+                allCharacters: [...state.allCharacters, action.payload]
             }
 
         case REMOVE_FAV:
@@ -22,24 +22,37 @@ const reducer = (state = initialState, action ) => {
             }
 
         case FILTER:
-            const allCharsFiltered = state.allCharacters.filter(char => char.gender === action.payload);
+            let allCharsFiltered = []
+            if (action.payload == 'todos') {
+                allCharsFiltered = state.allCharacters
+            } else {
+                allCharsFiltered = state.allCharacters.filter(char => char.gender === action.payload);
+            }
+
             return {
                 ...state,
                 myFavorites: allCharsFiltered
             }
 
         case ORDER:
+            let orderedFavorites = [];
+
+            if (action.payload === "Ascendente") {
+                orderedFavorites = state.allCharacters.slice().sort((a, b) => a.id - b.id);
+
+            } else if (action.payload === "Descendente") {
+                orderedFavorites = state.allCharacters.slice().sort((a, b) => b.id - a.id);
+
+            }
+
             return {
                 ...state,
-                myFavorites:
-                    action.payload === "Ascendente"
-                    ? state.allCharacters.sort ((a,b) => a.id - b.id)
-                    : state.allCharacters.sort ((a,b) => b.id - a.id)
+                myFavorites: [...orderedFavorites]
             }
-        
-            default:
-                return {...state};
-        }
+
+        default:
+            return { ...state };
+    }
 };
 
 export default reducer;

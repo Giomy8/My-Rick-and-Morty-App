@@ -9,6 +9,10 @@ import Detail from "./components/Detail/Detail";
 import Form from './components/Form/Form';
 import Favorites from './components/Favorites/Favorites';
 import HeaderIndex from './components/HeaderIndex/HeaderIndex'
+import { useDispatch } from 'react-redux';
+import { removeFav } from './redux/actions/actions';
+
+
 
 export default function App() {
 const [characters , setCharacters] = useState ([]);
@@ -24,18 +28,18 @@ const example = {
    },
    image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
 }
-
+const dispatch = useDispatch();
 const navigate = useNavigate();
 const {pathname} = useLocation();
 
-console.log("aqui",location)
+
 const [access, setAccess] = useState(false);
 useEffect(() => {
    !access && navigate('/');
 }, [access]);
 
 function onSearch(id) {
-   axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {console.log("aqui",data)
+   axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
       if (data.name) {
          setCharacters([...characters, data]);
       } else {
@@ -44,11 +48,9 @@ function onSearch(id) {
       });
   }
 const onClose = (id) => {
-   //const eliminarcard = event.target.value
-   //console.log(id)
-   let cardsfiltradas = characters.filter((character) =>    character.id !== Number(id))
-   //console.log('nuevo',eliminarcard)
-   setCharacters([...cardsfiltradas])
+      let cardsfiltradas = characters.filter((character) =>    character.id !== Number(id))
+      setCharacters([...cardsfiltradas])
+      dispatch(removeFav(id))
 }
    return (
       <div className = "App">
@@ -59,7 +61,7 @@ const onClose = (id) => {
            <Route path="/home" element={<Cards characters={characters} onClose={onClose} />} />
            <Route path="/about" element={<About />} />
            <Route path="/detail/:id" element={<Detail />} />
-           <Route path="/favorites" element={<Favorites/>}/>
+           <Route path="/favorites" element={<Favorites onClose={onClose}/>}/>
            </Routes>
          
       </div>
