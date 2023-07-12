@@ -8,28 +8,24 @@ import clip from '../../imagenes/clip.png';
 
 
 function Character() {
-  const { id } = useParams();
+  const { detailId} = useParams();
   const [character, setCharacter] = useState({});
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`http://localhost:3001/rickandmorty/character/${id}`);
-        const { data } = response;
-        if (data.name) {
-          setCharacter(data);
-        } else {
-          window.alert('No hay personajes con ese ID');
-        }
-      } catch (error) {
-        console.log(error);
-        window.alert('Error al obtener los datos');
+    axios(`http://localhost:3001/rickandmorty/detail/${detailId}`)
+    .then((response) => response.json())    
+    .then((char) => {
+      if(char.name) {
+        setCharacter(char);
+      }else {
+        alert("There are no characters with this ID!")
       }
-    };
-
-    fetchData();
-    return () => setCharacter({});
-  }, [id]);
+    })
+    .catch((err) => {
+      alert("There are no characters with this ID!");
+    });
+       return setCharacter({});
+    }, [detailId])
 
   return (
     <>

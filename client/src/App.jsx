@@ -38,18 +38,18 @@ useEffect(() => {
    !access && navigate('/');
 }, [access]);
 
-function onSearch(id) {
-   axios(`http://localhost:3001/rickandmorty/character/${id}`)
-   .then(({ data }) => {
-      if (data.name) {
-         setCharacters([...characters, data]);
+function onSearch(character) {
+   axios(`http://localhost:3001/rickandmorty/character/${character}`)
+   .then((response) => response.json())
+   .then((data) => {
+      console.log(data);
+      if (data.id) {
+         setCharacters((oldChars) =>[...oldChars, data]);
       } else {
-         window.alert('¡No hay personajes con este ID!');
+         alert('There are no characters with this ID!');
       }
    })
-   .catch(error => {
-      console.error(error);
-   });
+   .catch(err => console.error(err))
 }
 
 const onClose = (id) => {
