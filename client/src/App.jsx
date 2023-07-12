@@ -39,14 +39,19 @@ useEffect(() => {
 }, [access]);
 
 function onSearch(id) {
-   axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
+   axios(`http://localhost:3001/rickandmorty/character/${id}`)
+   .then(({ data }) => {
       if (data.name) {
          setCharacters([...characters, data]);
       } else {
          window.alert('¡No hay personajes con este ID!');
       }
-      });
-  }
+   })
+   .catch(error => {
+      console.error(error);
+   });
+}
+
 const onClose = (id) => {
       let cardsfiltradas = characters.filter((character) =>    character.id !== Number(id))
       setCharacters([...cardsfiltradas])

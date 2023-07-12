@@ -12,30 +12,39 @@ function Character() {
   const [character, setCharacter] = useState({});
 
   useEffect(() => {
-    axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
-      if (data.name) {
-        setCharacter(data);
-      } else {
-        window.alert('No hay personajes con ese ID');
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`http://localhost:3001/rickandmorty/character/${id}`);
+        const { data } = response;
+        if (data.name) {
+          setCharacter(data);
+        } else {
+          window.alert('No hay personajes con ese ID');
+        }
+      } catch (error) {
+        console.log(error);
+        window.alert('Error al obtener los datos');
       }
-    });
+    };
+
+    fetchData();
     return () => setCharacter({});
   }, [id]);
 
   return (
     <>
-      <div className={styles.contenedor}>
-
+   <div className={styles.contenedor}>
       <div className={styles.bordedatos}>
-      
-      <div className={styles.datos}>
-      <div className={styles.columdatos}>
-      {character.species && <p>Specie: {character.species}</p>}
-      {character.gender && <p>Type:  {character.type}</p>}
-      {character.origin && character.origin.name && <p>Origin: {character.origin.name}</p>}
-      {character.origin && character.origin.name && <p>Location: {character.location.name}</p>}
-      {character.origin && character.origin.name && <p>Episode: <Link to ={character.episode}> ver</Link></p>}
-      {character.origin && character.origin.name && <p>Created: {character.created}</p>}
+        <div className={styles.datos}>
+          <div className={styles.columdatos}>
+            {character.species && <p>Specie: {character.species}</p>}
+            {character.gender && <p>Type: {character.type}</p>}
+            {character.origin?.name && <p>Origin: {character.origin.name}</p>}
+            {character.location?.name && <p>Location: {character.location.name}</p>}
+            {character.episode && character.origin?.name && (
+              <p>Episode: <Link to={character.episode}>ver</Link></p>
+            )}
+            {character.created && character.origin?.name && <p>Created: {character.created}</p>}
       </div>
 
       <div className={styles.sello}>
