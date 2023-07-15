@@ -15,19 +15,20 @@ import { removeFav } from './redux/actions/actions';
 
 
 export default function App() {
+
+   function login(userData) {
+      const { email, password } = userData;
+      const URL = 'http://localhost:3001/rickandmorty/login/';
+      axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+         const { access } = data;
+         setAccess(data);
+         access && navigate('/home');
+      });
+   }
+
+
 const [characters , setCharacters] = useState ([]);
-const example = {
-   id: 1,
-   name: 'Rick Sanchez',
-   status: 'Alive',
-   species: 'Human',
-   gender: 'Male',
-   origin: {
-      name: 'Earth (C-137)',
-      url: 'https://rickandmortyapi.com/api/location/1',
-   },
-   image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
-}
+
 const dispatch = useDispatch();
 const navigate = useNavigate();
 const {pathname} = useLocation();
@@ -40,9 +41,10 @@ useEffect(() => {
 
 function onSearch(character) {
    axios(`http://localhost:3001/rickandmorty/character/${character}`)
-   .then((response) => response.json())
-   .then((data) => {
-      console.log(data);
+   .then((response) =>{ 
+   const data = response.data;
+   console.log(data);
+   
       if (data.id) {
          setCharacters((oldChars) =>[...oldChars, data]);
       } else {
@@ -62,7 +64,7 @@ const onClose = (id) => {
         {pathname !== '/' && <Nav onSearch={onSearch} setAccess={setAccess}/>}
         {pathname === '/' && <HeaderIndex />} 
          <Routes>
-           <Route path="/" element={<Form setAccess={setAccess} />} />
+           <Route path="/" element={<Form setAccess={setAccess} login={login}/>} />
            <Route path="/home" element={<Cards characters={characters} onClose={onClose} />} />
            <Route path="/about" element={<About />} />
            <Route path="/detail/:id" element={<Detail />} />

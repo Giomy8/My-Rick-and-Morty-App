@@ -1,14 +1,17 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Cards from "../Cards/Cards";
-import { orderCards, filterCards } from "../../redux/actions/actions";
+import { orderCards, filterCards, allFav } from "../../redux/actions/actions";
 import styles from "./Favorites.module.css";
 import { IconArrowBackUp } from "@tabler/icons-react";
 import { Link } from "react-router-dom";
 
 export default function Favorites({ onClose }) {
   const traerFav = useSelector((state) => state.myFavorites);
+  
   const dispatch = useDispatch();
+  // const traerFav = dispatch(allFav());
+console.log(traerFav,"jjjj")
 
   const handleOrder = (event) => {
     dispatch(orderCards(event.target.value));
@@ -19,8 +22,8 @@ export default function Favorites({ onClose }) {
   };
 
   useEffect(() => {
-    dispatch(orderCards("Ascendente"));
-  }, [dispatch]);
+    dispatch(allFav())
+  }, []);
 
   return (
     <div>
@@ -51,7 +54,8 @@ export default function Favorites({ onClose }) {
           <option value="todos">All</option>
         </select>
       </div>
-      <Cards characters={traerFav} onClose={onClose} />
+      {traerFav && <Cards characters={traerFav} onClose={onClose} /> }
+      
     </div>
   );
 }

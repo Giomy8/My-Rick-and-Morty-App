@@ -1,4 +1,4 @@
-import { ADD_FAV, FILTER, ORDER, REMOVE_FAV } from "../actions/actions";
+import { ADD_FAV, FILTER, ORDER, REMOVE_FAV, ALL_FAV } from "../actions/actions";
 
 const initialState = {
     myFavorites: [],
@@ -8,18 +8,16 @@ const initialState = {
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_FAV:
-            return {
-                ...state,
-                myFavorites: [...state.allCharacters, action.payload],
-                allCharacters: [...state.allCharacters, action.payload]
-            }
+            return { ...state, myFavorites: action.payload, allCharacters: action.payload };
 
-        case REMOVE_FAV:
-            // const newFavorite = state.myFavorites.filter((character) => character.id !== Number(action.payload));
-            return {
-                ...state,
-                myFavorites: state.myFavorites.filter(char => char.id !== action.payload)
-            }
+            case ALL_FAV:
+                console.log(action.payload,"accion")
+                return { ...state, myFavorites: action.payload, allCharacters: action.payload };
+
+            
+
+            case REMOVE_FAV:
+                return { ...state, myFavorites: action.payload };
 
         case FILTER:
             let allCharsFiltered = []

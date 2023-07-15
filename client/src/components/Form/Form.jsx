@@ -7,8 +7,8 @@ import { useState } from 'react';
 const EMAIL = 'giomarmesa@gmail.com';
 const PASSWORD = '123456';
 
-// eslint-disable-next-line
-export default function Form({setAccess}) {
+
+export default function Form({setAccess, login}) {
   const [userData, setUserData] = useState({
     email: EMAIL,
     password: PASSWORD,
@@ -29,12 +29,7 @@ export default function Form({setAccess}) {
     const newErrors = Validate(userData);
     setErrors(newErrors);
     if (Object.keys(newErrors).length === 0) {
-        if (userData.password === PASSWORD && userData.email === EMAIL) {
-            setAccess(true);
-            navigate('/home');
-         }else{
-            setErrors({...errors,emailpassword: "* Username or Password are invalid"})
-         }
+        login(userData)
        }
   };
 
