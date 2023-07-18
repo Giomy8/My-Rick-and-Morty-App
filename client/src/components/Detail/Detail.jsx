@@ -7,13 +7,13 @@ import sello from '../../imagenes/sello.png';
 import clip from '../../imagenes/clip.png';
 
 
-function Character() {
+function Detail() {
   const { detailId} = useParams();
   const [character, setCharacter] = useState({});
 
   useEffect(() => {
     axios(`http://localhost:3001/rickandmorty/detail/${detailId}`)
-    .then((response) => response.json())    
+    .then((response) => response.data)    
     .then((char) => {
       if(char.name) {
         setCharacter(char);
@@ -22,7 +22,7 @@ function Character() {
       }
     })
     .catch((err) => {
-      alert("There are no characters with this ID!");
+      alert(err.message,"There are no characters with this ID ****!");
     });
        return setCharacter({});
     }, [detailId])
@@ -91,4 +91,4 @@ function Character() {
   );
 }
 
-export default Character;
+export default Detail;

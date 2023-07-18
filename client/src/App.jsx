@@ -68,7 +68,7 @@ export default function App() {
             <Route path="/" element={<Form setAccess={setAccess} login={login} />} />
             <Route path="/home" element={<Cards characters={characters} onClose={onClose} />} />
             <Route path="/about" element={<About />} />
-            <Route path="/detail/:id" element={<Detail />} />
+            <Route path="/detail/:detailId" element={<Detail />} />
             <Route path="/favorites" element={<Favorites onClose={onClose} />} />
          </Routes>
       </div>

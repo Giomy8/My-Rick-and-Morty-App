@@ -6,6 +6,7 @@ const login = require("../controllers/login");
 const { postFav, deleteFav, favorites } = require("../controllers/handleFavorites");
 
 router.get("/character/:id", getCharById);
+router.get("/detail/:id", getCharById);
 router.get("/login", login);
 router.post("/fav", postFav);
 router.get("/favorites", favorites);
