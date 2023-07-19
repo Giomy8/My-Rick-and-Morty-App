@@ -8,9 +8,10 @@ const { postFav, deleteFav, favorites } = require("../controllers/handleFavorite
 router.get("/character/:id", getCharById);
 router.get("/detail/:id", getCharById);
 router.get("/login", login);
-router.post("/fav", postFav);
+router.post("/fav", (req, res) => { postFav(req, res);
+});
 router.get("/favorites", favorites);
-router.delete("/fav/:id", deleteFav);
+router.delete("/fav/:id", (req, res) => { deleteFav(req, res)});
 
 module.exports = router;
 

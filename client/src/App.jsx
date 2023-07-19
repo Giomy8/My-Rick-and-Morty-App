@@ -22,7 +22,7 @@ export default function App() {
    const [access, setAccess] = useState(false);
    useEffect(() => {
       !access && navigate('/');
-   }, [access]);
+   }, []);
 
    async function login(userData) {
       try {

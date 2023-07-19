@@ -25,7 +25,7 @@ function Detail() {
       alert(err.message,"There are no characters with this ID ****!");
     });
        return setCharacter({});
-    }, [detailId])
+    }, [])
 
   return (
     <>
