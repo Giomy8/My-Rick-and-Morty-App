@@ -57,7 +57,7 @@ export default function App() {
    const onClose = (id) => {
       let cardsfiltradas = characters.filter((character) => character.id !== Number(id));
       setCharacters([...cardsfiltradas]);
-      dispatch(removeFav(id));
+      // dispatch(removeFav(id));
    };
 
    return (

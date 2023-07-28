@@ -5,7 +5,6 @@ module.exports = (sequelize) => {
       id: {
          type: DataTypes.INTEGER,
          primaryKey: true,
-         autoIncrement: true,
          allowNull: false
       },
       name: {
@@ -26,7 +25,7 @@ module.exports = (sequelize) => {
          defaultValue: 'unknown'
       },
       origin: {
-         type: DataTypes.STRING,
+         type: DataTypes.JSON,
          allowNull: false
       },
       image: {

@@ -36,7 +36,11 @@ function Card(props) {
   return (
     <div className={`${styles.pestana}`}>
       <div className={styles.nombre}>{name}</div>
-      <button className={styles.buttontrash} onClick={() => props.onClose(id)}>
+      <button className={styles.buttontrash} onClick={() =>{ props.onClose(id)
+      if(isFav){
+        props.removeFav(id);
+      }
+      }}>
         <IconTrash />
       </button>
       <Link to={"/detail/" + id}>
